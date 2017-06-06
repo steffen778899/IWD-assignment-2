@@ -56,7 +56,7 @@ function InitializeHomePage()
   var dealOfDayList = document.getElementsByClassName("dealOfDay")[0].getElementsByTagName("li");
 
   var httpRequest = new XMLHttpRequest();
-  httpRequest.open('GET','', true);
+  httpRequest.open('GET','https://raw.githubusercontent.com/steffen778899/IWD-assignment-2/master/json_items/items.json');
 
   httpRequest.onload = function ()
   {
