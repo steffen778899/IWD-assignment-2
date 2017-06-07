@@ -1,0 +1,20 @@
+h2{
+  border-bottom-style: solid;
+  border-bottom-color: green;
+  padding-bottom: 10px;
+  text-align: left;
+}
+
+.introduction{
+  text-align: left;
+}
+
+.featuredItems ul{
+  list-style: none;
+  display: inline-block;
+}
+.featuredItems li{
+  display: inline-block;
+  height: 100px;
+  width: 20%;
+}
