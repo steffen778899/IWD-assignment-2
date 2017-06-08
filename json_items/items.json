@@ -40,7 +40,7 @@
           "title": "Alice in Wonderland",
        "category": "fantasy",
     "description": "story of Alice's journey in the fantasy world",
-     "popularity": "normal",
+     "popularity": "high",
          "onsale": "no",
           "price": 20
   },
@@ -50,8 +50,8 @@
           "title": "Alice in Wonderland",
        "category": "fantasy",
     "description": "story of Alice's journey in the fantasy world",
-     "popularity": "normal",
-         "onsale": "no",
+     "popularity": "high",
+         "onsale": "yes",
           "price": 20
   },
   
@@ -61,7 +61,7 @@
        "category": "fantasy",
     "description": "story of Alice's journey in the fantasy world",
      "popularity": "normal",
-         "onsale": "no",
+         "onsale": "yes",
           "price": 20
   },
   
@@ -80,8 +80,8 @@
           "title": "Alice in Wonderland",
        "category": "fantasy",
     "description": "story of Alice's journey in the fantasy world",
-     "popularity": "normal",
-         "onsale": "no",
+     "popularity": "high",
+         "onsale": "yes",
           "price": 20
   },
   
@@ -90,7 +90,7 @@
           "title": "Alice in Wonderland",
        "category": "fantasy",
     "description": "story of Alice's journey in the fantasy world",
-     "popularity": "normal",
+     "popularity": "high",
          "onsale": "no",
           "price": 20
   },
@@ -101,7 +101,7 @@
        "category": "fantasy",
     "description": "story of Alice's journey in the fantasy world",
      "popularity": "normal",
-         "onsale": "no",
+         "onsale": "yes",
           "price": 20
   },
   
@@ -110,8 +110,8 @@
           "title": "Alice in Wonderland",
        "category": "fantasy",
     "description": "story of Alice's journey in the fantasy world",
-     "popularity": "normal",
-         "onsale": "no",
+     "popularity": "high",
+         "onsale": "yes",
           "price": 20
   },
   
@@ -120,8 +120,8 @@
           "title": "Alice in Wonderland",
        "category": "fantasy",
     "description": "story of Alice's journey in the fantasy world",
-     "popularity": "normal",
-         "onsale": "no",
+     "popularity": "high",
+         "onsale": "yes",
           "price": 20
   }
 ]
