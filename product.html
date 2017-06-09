@@ -3,10 +3,11 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/product.css">
     <script type="text/javascript" src="js/script.js"></script>
-    <title></title>
+    <title>All Books</title>
   </head>
-  <body>
+  <body onload="InitializeProductPage()">
     <header>
         <br/>
         <h1>Auckland City Books</h1>
@@ -19,10 +20,46 @@
         <li><a href="about.html">About Us</a></li>
       </ul>
     </nav>
+    <br/><br/><br/>
     <div class="contents">
+      <div class="category">
+        <h2>Category</h2>
+        <ul></ul>
+        <h2></h2>
+        <div class="booksPerPage">
+          <label>Display </label><input type="number" value="3" min="1" max="20" id="booksPerPageValue"><label> Books per Page</label>
+          <button type="button" onclick="UpdateBooksPerPage()">Confirm</button>
+        </div>
+        <label id="totalPagesValue"></label>
+        <label id="currentPage"></label>
+        <label id="categoryType"></label>
+      </div>
+      <div class="productsInfo">
+        <ul>
+        </ul>
+        <ul class="totalPages">
+          <li><button type="button"  onclick="ShowPrevious()" id="previousButton">Previous</button></li>
+          <li><button type="button" onclick="ShowNext()" id="nextButton">Next</button></li>
+        </ul>
+      </div>
+      <br/><br/>
+      <div class="shoppingCart">
+        <h2>My Cart</h2>
+        <table>
+          <tr>
+            <th>Name</th>
+            <th>Quantity</th>
+            <th>Price</th>
+          </tr>
+          <tr id="totalPriceRow">
+            <td colspan="2">Total Price:</td>
+            <td id="totalPrice">0</td>
+          </tr>
+        </table>
+      </div>
 
     </div>
-    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+    <br/><br/><br/>
     <footer>
       @developed by DEPENG LI, GUOBIN LI, LONGYI LI
     </footer>
