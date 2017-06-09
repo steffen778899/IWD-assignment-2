@@ -5,6 +5,10 @@ h2{
   text-align: left;
 }
 
+button:hover{
+  cursor: pointer;
+}
+
 .category{
   text-align: left;
 }
@@ -27,7 +31,13 @@ h2{
 #categoryType{
   display: none;
 }
-
+.booksPerPage #setBooksPerPageButton{
+  border-radius: 10px;
+}
+.booksPerPage input[type="number"]{
+  border-radius: 10px;
+  text-align: center;
+}
 .productsInfo button{
   width: 90px;
   height: 30px;
@@ -35,6 +45,7 @@ h2{
 }
 .productsInfo ul{
   list-style: none;
+  padding-left: 0;
 }
 .productsInfo li{
   padding-left: 20px;
@@ -72,6 +83,9 @@ h2{
 .totalPages li:hover{
   cursor: pointer;
 }
+.totalPages button{
+  border-radius: 20px;
+}
 
 .shoppingCart img{
   height: 20px;
@@ -95,4 +109,10 @@ h2{
   display: inline-block;
   margin: 10px;
   /*white-space:nowrap; /*force the -XX+ display in one line*/
+}
+
+#checkOut{
+  margin-top: 20px;
+  margin-left: 40px;
+  border-radius: 20px;
 }

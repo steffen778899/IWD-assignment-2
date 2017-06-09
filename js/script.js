@@ -50,149 +50,61 @@ function ShowStorePosition()
 
 var addressOfJsonFile = 'https://raw.githubusercontent.com/steffen778899/IWD-assignment-2/master/json_items/items.json';
 
-// function InitializeHomePage()
-// {
-//   // get all the li elements under featured items
-//   var featuredItemList = document.getElementsByClassName("featuredItems")[0].getElementsByTagName("li");
-//   // get all the li elements under deal of day
-//   var dealOfDayList = document.getElementsByClassName("dealOfDay")[0].getElementsByTagName("li");
-//
-//   var httpRequest = new XMLHttpRequest();
-//   httpRequest.open('GET', addressOfJsonFile);
-//
-//   httpRequest.onload = function ()
-//   {
-//     // get all the products defined in json file
-//     var allProducts = JSON.parse(httpRequest.responseText);
-//     // define the count of items displayed, as we only display 5 items on the page
-//     var countOfFeaturedItem = 0;
-//     var countOfDealOfDay = 0;
-//     // hide all the li elements first
-//     for(var i = 0; i < featuredItemList.length; i++)
-//     {
-//       featuredItemList[i].style.display = "none";
-//     }
-//     for(var i = 0; i < dealOfDayList.length; i++)
-//     {
-//       dealOfDayList[i].style.display = "none";
-//     }
-//     // display the li elements
-//     for(var i = 0; i < allProducts.length; i++)
-//     {
-//       // display the popular items
-//       if(allProducts[i].popularity == "high" && countOfFeaturedItem < 5)
-//       {
-//         // display the image
-//         featuredItemList[countOfFeaturedItem].getElementsByTagName("img")[0].src = "images/" + allProducts[i].id + ".jpg";
-//         // display the title
-//         featuredItemList[countOfFeaturedItem].getElementsByTagName("p")[0].innerHTML = allProducts[i].title;
-//         // display
-//         featuredItemList[countOfFeaturedItem].style.display = "inline-block";
-//         countOfFeaturedItem++;
-//       }
-//
-//       // display the deal of the day
-//       if(allProducts[i].onsale == "yes" && countOfDealOfDay < 5)
-//       {
-//         // display the image
-//         dealOfDayList[countOfDealOfDay].getElementsByTagName("img")[0].src = "images/" + allProducts[i].id + ".jpg";
-//         // display the title
-//         dealOfDayList[countOfDealOfDay].getElementsByTagName("p")[0].innerHTML = allProducts[i].title;
-//         // display
-//         dealOfDayList[countOfDealOfDay].style.display = "inline-block";
-//         countOfDealOfDay++;
-//       }
-//     }
-//   }
-//   httpRequest.send();
-// }
-
 function InitializeHomePage()
 {
-  var httpRequest = new XMLHttpRequest();
-  httpRequest.open('GET', addressOfJsonFile);
-  httpRequest.onload = function ()
-  {
-    // get all the products defined in json file
-    var allProducts = JSON.parse(httpRequest.responseText);
-    var booksPerPage = 2;
-    //setInterval(SlideShowOnHomePage, 5);
-    SlideShowOnHomePage(allProducts, booksPerPage);
-  }
-  httpRequest.send();
-}
+    // get all the li elements under featured items
+    var featuredItemList = document.getElementsByClassName("featuredItems")[0].getElementsByTagName("li");
+    // get all the li elements under deal of day
+    var dealOfDayList = document.getElementsByClassName("dealOfDay")[0].getElementsByTagName("li");
 
-// function GetCountOfSpecificBooks(allProducts, fieldName, fieldFilter)
-// {
-//     var totalCount = 0;
-//     if (fieldName == "popularity")
-//     {
-//         for (var i = 0; i < allProducts.length; i++)
-//         {
-//             if(allProducts[i].popularity == fieldFilter)
-//             {
-//                 totalCount++;
-//             }
-//         }
-//     }
-//     else if(fieldName == "onsale")
-//     {
-//         for (var i = 0; i < allProducts.length; i++)
-//         {
-//             if(allProducts[i].onsale == fieldFilter)
-//             {
-//                 totalCount++;
-//             }
-//         }
-//     }
-//     return totalCount;
-// }
+    var httpRequest = new XMLHttpRequest();
+    httpRequest.open('GET', addressOfJsonFile);
 
-function SlideShowOnHomePage(allProducts, booksPerPage)
-{
-  // get all the li elements under featured items
-  var featuredItemList = document.getElementsByClassName("featuredItems")[0].getElementsByTagName("li");
-  // get all the li elements under deal of day
-  var dealOfDayList = document.getElementsByClassName("dealOfDay")[0].getElementsByTagName("li");
-  var countOfFeaturedItem = 0;
-  var countOfDealOfDay = 0;
-
-  // hide all the li elements first
-  for(var i = 0; i < featuredItemList.length; i++)
-  {
-    featuredItemList[i].style.display = "none";
-  }
-  for(var i = 0; i < dealOfDayList.length; i++)
-  {
-    dealOfDayList[i].style.display = "none";
-  }
-  // display the li elements
-  for(var i = 0; i < allProducts.length; i++)
-  {
-    // display the popular items
-    if(allProducts[i].popularity == "high" && countOfFeaturedItem < booksPerPage)
+    httpRequest.onload = function ()
     {
-      // display the image
-      featuredItemList[countOfFeaturedItem].getElementsByTagName("img")[0].src = "images/" + allProducts[i].id + ".jpg";
-      // display the title
-      featuredItemList[countOfFeaturedItem].getElementsByTagName("p")[0].innerHTML = allProducts[i].title;
-      // display
-      featuredItemList[countOfFeaturedItem].style.display = "inline-block";
-      countOfFeaturedItem++;
-    }
+      // get all the products defined in json file
+      var allProducts = JSON.parse(httpRequest.responseText);
+      // define the count of items displayed, as we only display 5 items on the page
+      var countOfFeaturedItem = 0;
+      var countOfDealOfDay = 0;
+      // hide all the li elements first
+      for(var i = 0; i < featuredItemList.length; i++)
+      {
+        featuredItemList[i].style.display = "none";
+      }
+      for(var i = 0; i < dealOfDayList.length; i++)
+      {
+        dealOfDayList[i].style.display = "none";
+      }
+      // display the li elements
+      for(var i = 0; i < allProducts.length; i++)
+      {
+        // display the popular items
+        if(allProducts[i].popularity == "high" && countOfFeaturedItem < 5)
+        {
+          // display the image
+          featuredItemList[countOfFeaturedItem].getElementsByTagName("img")[0].src = "images/" + allProducts[i].id + ".jpg";
+          // display the title
+          featuredItemList[countOfFeaturedItem].getElementsByTagName("p")[0].innerHTML = allProducts[i].title;
+          // display
+          featuredItemList[countOfFeaturedItem].style.display = "inline-block";
+          countOfFeaturedItem++;
+        }
 
-    // display the deal of the day
-    if(allProducts[i].onsale == "yes" && countOfDealOfDay < booksPerPage)
-    {
-      // display the image
-      dealOfDayList[countOfDealOfDay].getElementsByTagName("img")[0].src = "images/" + allProducts[i].id + ".jpg";
-      // display the title
-      dealOfDayList[countOfDealOfDay].getElementsByTagName("p")[0].innerHTML = allProducts[i].title;
-      // display
-      dealOfDayList[countOfDealOfDay].style.display = "inline-block";
-      countOfDealOfDay++;
+        // display the deal of the day
+        if(allProducts[i].onsale == "yes" && countOfDealOfDay < 5)
+        {
+          // display the image
+          dealOfDayList[countOfDealOfDay].getElementsByTagName("img")[0].src = "images/" + allProducts[i].id + ".jpg";
+          // display the title
+          dealOfDayList[countOfDealOfDay].getElementsByTagName("p")[0].innerHTML = allProducts[i].title;
+          // display
+          dealOfDayList[countOfDealOfDay].style.display = "inline-block";
+          countOfDealOfDay++;
+        }
+      }
     }
-  }
+    httpRequest.send();
 }
 
 function InitializeProductPage()
@@ -333,7 +245,7 @@ function AddOneProductInfo(ulNode, productInfo)
     var newTdText = document.createElement('td');
     newTdText.innerHTML = "Title:" + productInfo.title + "<br/><br/>Category:" + productInfo.category +
                           "<br/><br/>Description:" + productInfo.description + "<br/><br/>On Sale:" + productInfo.onsale +
-                          "<br/><br/>Price:" + productInfo.price;
+                          "<br/><br/>Price:" + parseFloat(productInfo.price).toFixed(2);
 
     var newTdAddCart = document.createElement('td');
     var newAddCartImage = document.createElement('img');
@@ -448,7 +360,6 @@ function DisplayBooksOnPage(currentPage, categoryType)
         else
         {
             var startPosition = 0;
-
             if (alreadyDisplayedCount == 0)
             {
                 startPosition = 0;
@@ -477,6 +388,7 @@ function DisplayBooksOnPage(currentPage, categoryType)
                 // display the specified category
                 if (allProducts[i].category == categoryType)
                 {
+                    countSoFar++;
                     AddOneProductInfo(ulNode, allProducts[i]);
                 }
             }
@@ -594,12 +506,12 @@ function AddCart(productId)
         // update row if the product is already added
         if (IsAlreadyAddedToCart(productInfo))
         {
-            UpdateProductRow(productInfo.title, 1)
+            UpdateCartRow(productInfo.title, 1)
         }
         // create a new row if the product is not added
         else
         {
-            CreateNewProductRow(productInfo);
+            CreateNewCartRow(productInfo);
         }
     }
     httpRequest.send();
@@ -632,7 +544,7 @@ function IsAlreadyAddedToCart(productInfo)
     return isAlreadyAddedToCart;
 }
 
-function UpdateProductRow(productName, counts)
+function UpdateCartRow(productName, counts)
 {
     var totalPrice = document.getElementById("totalPrice");
     var bookNames = document.getElementsByClassName("bookName");
@@ -650,7 +562,7 @@ function UpdateProductRow(productName, counts)
         }
     }
     // calculate the single price of the book
-    var singlePrice = bookPrices[locationOfBook].innerHTML / bookQuantities[locationOfBook].innerHTML;
+    var singlePrice = parseFloat(bookPrices[locationOfBook].innerHTML / bookQuantities[locationOfBook].innerHTML).toFixed(2);
     // new quantity of the book
     var newQuantity = parseInt(bookQuantities[locationOfBook].innerHTML) + counts;
     // if new quantity equal to zero, ask user for confirmation to delete the book
@@ -660,7 +572,7 @@ function UpdateProductRow(productName, counts)
         if (confirm("Are you sure you want to delete this book from cart?") == true)
         {
             // update total price
-            totalPrice.innerHTML = parseInt(totalPrice.innerHTML) + (counts * singlePrice);
+            totalPrice.innerHTML = parseFloat(parseFloat(totalPrice.innerHTML) + (counts * singlePrice)).toFixed(2);
 
             var tbody = document.getElementsByClassName("shoppingCart")[0].getElementsByTagName("table")[0].tBodies[0];
             // "locationOfBook + 1" because there is a table header row
@@ -669,14 +581,14 @@ function UpdateProductRow(productName, counts)
         return;
     }
     // update quantity
-    bookQuantities[locationOfBook].innerHTML = parseInt(bookQuantities[locationOfBook].innerHTML) + counts;
+    bookQuantities[locationOfBook].innerHTML = newQuantity;
     // update price
-    bookPrices[locationOfBook].innerHTML = parseInt(bookPrices[locationOfBook].innerHTML) + (counts * singlePrice);
+    bookPrices[locationOfBook].innerHTML = parseFloat(parseFloat(bookPrices[locationOfBook].innerHTML) + (counts * singlePrice)).toFixed(2);
     // update total price
-    totalPrice.innerHTML = parseInt(totalPrice.innerHTML) + (counts * singlePrice);
+    totalPrice.innerHTML = parseFloat(parseFloat(totalPrice.innerHTML) + (counts * singlePrice)).toFixed(2);
 }
 
-function CreateNewProductRow(productInfo)
+function CreateNewCartRow(productInfo)
 {
     // cart table
     var cartTable = document.getElementsByClassName("shoppingCart")[0].getElementsByTagName("table")[0];
@@ -706,18 +618,18 @@ function CreateNewProductRow(productInfo)
     var removeIcon = document.createElement('img');
     removeIcon.src = "images/remove.png";
     // set onclick event
-    removeIcon.onclick = function () {UpdateProductRow(productInfo.title, -1)}
+    removeIcon.onclick = function () {UpdateCartRow(productInfo.title, -1)}
     var addIcon = document.createElement('img');
     addIcon.src = "images/add.png";
     // set onclick event
-    addIcon.onclick = function () {UpdateProductRow(productInfo.title, 1)}
+    addIcon.onclick = function () {UpdateCartRow(productInfo.title, 1)}
     newTdQuantity.appendChild(removeIcon);
     newTdQuantity.appendChild(quantityTxt);
     newTdQuantity.appendChild(addIcon);
 
     var newTdPrice = document.createElement('td');
     newTdPrice.className = "bookPrice";
-    newTdPrice.innerHTML = productInfo.price;
+    newTdPrice.innerHTML = parseFloat(productInfo.price).toFixed(2);
 
     newTableRow.appendChild(newTdName);
     newTableRow.appendChild(newTdQuantity);
@@ -727,5 +639,11 @@ function CreateNewProductRow(productInfo)
     tbody.insertBefore(newTableRow, cartTable.rows[cartTable.rows.length - 1]);
 
     // update total price
-    totalPrice.innerHTML = parseInt(totalPrice.innerHTML) + productInfo.price;
+    totalPrice.innerHTML = parseFloat(parseFloat(totalPrice.innerHTML) + productInfo.price).toFixed(2);
+}
+
+function CheckOut()
+{
+    var totalPrice = document.getElementById("totalPrice");
+    alert("Congratulations! Total price $" + parseFloat(totalPrice.innerHTML).toFixed(2));
 }
