@@ -1,0 +1,38 @@
+[
+  {
+             "id": 1,
+          "title": "Harry potter",
+       "category": "novel",
+    "description": "story of wizard and his friends",
+     "popularity": "high",
+         "onsale": "yes",
+          "price": 50
+  },
+  {
+             "id": 2,
+          "title": "A Tale of Two Cities",
+       "category": "fiction",
+    "description": "story of the French Doctor Manette",
+     "popularity": "high",
+         "onsale": "no",
+          "price": 40
+  },
+  {
+             "id": 3,
+          "title": "The Hobbit",
+       "category": "fantasy",
+    "description": "story of Bilbo's journey",
+     "popularity": "normal",
+         "onsale": "yes",
+          "price": 30
+  },
+  {
+             "id": 4,
+          "title": "Alice in Wonderland",
+       "category": "fantasy",
+    "description": "story of Alice's journey in the fantasy world",
+     "popularity": "normal",
+         "onsale": "no",
+          "price": 20
+  }
+]

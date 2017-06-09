@@ -1,0 +1,33 @@
+h2{
+  border-bottom-style: solid;
+  border-bottom-color: green;
+  padding-bottom: 10px;
+  text-align: left;
+}
+
+.introduction{
+  text-align: left;
+}
+
+.contents{
+  text-align: left;
+}
+.contents img{
+  height: 306px;
+  width: 200px;
+  padding-left: 10px;
+}
+.contents ul{
+  list-style: none;
+  display: inline-block;
+}
+.contents li{
+  display: inline-block;
+  text-align: center;
+}
+#lastPosOfFeaturedItem{
+  display: none;
+}
+#lastPosOfDealOfDay{
+  display: none;
+}

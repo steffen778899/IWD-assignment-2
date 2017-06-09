@@ -1,0 +1,42 @@
+body{
+  text-align: center;
+  font-family:Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  background-color: rgb(224, 224, 209);
+}
+
+header{
+  text-align: center;
+  height: 100px;
+  color: red;
+  background-image:url(../images/title.jpg);
+}
+
+.menu{
+  float: right;
+}
+.menu ul{
+  list-style: none;
+  display: inline-block;
+}
+.menu li{
+  display: inline-block;
+}
+.menu a{
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 10px;
+  border:1px solid blue;
+  color: black;
+  padding: 10px;
+  width: 96px;
+}
+.menu a:hover{
+  background-color: rgb(55,96,146);
+  color: white;
+}
+
+footer{
+  text-align: center;
+  color: lightgray;
+}

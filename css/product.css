@@ -1,0 +1,118 @@
+h2{
+  border-bottom-style: solid;
+  border-bottom-color: green;
+  padding-bottom: 10px;
+  text-align: left;
+}
+
+button:hover{
+  cursor: pointer;
+}
+
+.category{
+  text-align: left;
+}
+.category ul{
+  list-style: none;
+}
+.category li{
+  padding-left: 10px;
+  display: inline-block;
+}
+.category li:hover{
+  cursor: pointer;
+}
+#totalPagesValue{
+  display: none;
+}
+#currentPage{
+  display: none;
+}
+#categoryType{
+  display: none;
+}
+.booksPerPage #setBooksPerPageButton{
+  border-radius: 10px;
+}
+.booksPerPage input[type="number"]{
+  border-radius: 10px;
+  text-align: center;
+}
+.productsInfo button{
+  width: 90px;
+  height: 30px;
+  border-radius: 5px;
+}
+.productsInfo ul{
+  list-style: none;
+  padding-left: 0;
+}
+.productsInfo li{
+  padding-left: 20px;
+  padding-top: 5px;
+  border-bottom: 1px solid black;
+}
+.productsInfo table{
+  text-align: left;
+}
+.productsInfo td{
+  padding-left: 10px;
+  width: 200px;
+}
+.productImage{
+  height: 306px;
+  width: 200px;
+  padding-left: 10px;
+}
+.cartImage{
+  height: 50px;
+  width: 50px;
+}
+.cartImage:hover{
+  cursor: pointer;
+}
+
+.totalPages li{
+  border-style: none;
+  padding: 10px;
+  margin: 10px;
+  background-color:white;
+  display: inline-block;
+  border-radius: 100px;
+}
+.totalPages li:hover{
+  cursor: pointer;
+}
+.totalPages button{
+  border-radius: 20px;
+}
+
+.shoppingCart img{
+  height: 20px;
+  width: 20px;
+}
+.shoppingCart img:hover{
+  cursor: pointer;
+}
+
+.shoppingCart{
+  text-align: left;
+}
+.shoppingCart table{
+  border-collapse: collapse;
+  white-space:nowrap;
+}
+.shoppingCart td{
+  width: 200px;
+}
+.bookQuantity{
+  display: inline-block;
+  margin: 10px;
+  /*white-space:nowrap; /*force the -XX+ display in one line*/
+}
+
+#checkOut{
+  margin-top: 20px;
+  margin-left: 40px;
+  border-radius: 20px;
+}
