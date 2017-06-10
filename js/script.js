@@ -12,13 +12,13 @@ function validateForm()
     alert("First name must be at least 5 letters.");
   }
   // Surname must be at least 8 letters
-  if (surname.length < 8 || surname.search(/^[a-zA-Z]+$/))
+  else if (surname.length < 8 || surname.search(/^[a-zA-Z]+$/))
   {
     isValid = false;
     alert("Surname must be at least 8 letters.");
   }
   //Users must agree with the term of service
-  if (isChecked == false)
+  else if (isChecked == false)
   {
     isValid = false;
     alert("You must agree with the terms and conditions to proceed.");
@@ -52,10 +52,10 @@ var addressOfJsonFile = 'https://raw.githubusercontent.com/steffen778899/IWD-ass
 
 function InitializeHomePage()
 {
-    // get all the li elements under featured items
-    var featuredItemList = document.getElementsByClassName("featuredItems")[0].getElementsByTagName("li");
-    // get all the li elements under deal of day
-    var dealOfDayList = document.getElementsByClassName("dealOfDay")[0].getElementsByTagName("li");
+    // get all the div elements under featured items
+    var featuredItemList = document.getElementsByClassName("featuredItems")[0].getElementsByTagName("div");
+    // get all the div elements under deal of day
+    var dealOfDayList = document.getElementsByClassName("dealOfDay")[0].getElementsByTagName("div");
 
     var httpRequest = new XMLHttpRequest();
     httpRequest.open('GET', addressOfJsonFile);
@@ -80,7 +80,7 @@ function InitializeHomePage()
       for(var i = 0; i < allProducts.length; i++)
       {
         // display the popular items
-        if(allProducts[i].popularity == "high" && countOfFeaturedItem < 5)
+        if(allProducts[i].popularity == "high" && countOfFeaturedItem < 4)
         {
           // display the image
           featuredItemList[countOfFeaturedItem].getElementsByTagName("img")[0].src = "images/" + allProducts[i].id + ".jpg";
@@ -92,7 +92,7 @@ function InitializeHomePage()
         }
 
         // display the deal of the day
-        if(allProducts[i].onsale == "yes" && countOfDealOfDay < 5)
+        if(allProducts[i].onsale == "yes" && countOfDealOfDay < 4)
         {
           // display the image
           dealOfDayList[countOfDealOfDay].getElementsByTagName("img")[0].src = "images/" + allProducts[i].id + ".jpg";
@@ -157,11 +157,26 @@ function InitializeCategory(allProducts)
         }
     }
     var ulNode = document.getElementsByClassName("category")[0].getElementsByTagName("ul")[0];
+    var newAllLiElement = document.createElement("li");       // Create a <li> element
+    //add all category
+    newAllLiElement.innerHTML = "<button type='button' class='btn'>" + "All" + " " + "<span class='badge'>" + allProducts.length +"</span>" + "</button>";
+    //li class="list-group-item"
+    newAllLiElement.setAttribute("class","list-group-item");
+    var methodAllAttr = document.createAttribute("onclick");  // Create a onclick event
+    methodAllAttr.value = "DisplaySelectedCategory('"  + 'all' + "')";
+    newAllLiElement.setAttributeNode(methodAllAttr);             // Append the attribute to the <li> element
+    ulNode.appendChild(newAllLiElement);                      // Append the <li> to category <ul> node
+
     for (var i = 0; i < categories.length; i++)
     {
         var newLiElement = document.createElement("li");       // Create a <li> element
-        // add text to the <li> element
-        newLiElement.innerHTML = "<u>" + categories[i] + "(" + categoryCounts[i] + ")</u>";
+        // add text to the <li> element add badge in li element
+        newLiElement.innerHTML = "<button type='button' class='btn'>" + categories[i] + " " + "<span class='badge'>" + categoryCounts[i] +"</span>" + "</button>";
+        //li class="list-group-item"
+        newLiElement.setAttribute("class","list-group-item");
+
+
+
 
         //newLiElement.onclick = function (){
         //    DisplaySelectedCategory(categories[i], allProducts)
@@ -213,60 +228,42 @@ function ClearPruductsInfo()
     ulNode.innerHTML = "";
 }
 
-var productInfoBgColor1 = "rgb(153, 255, 153)";
-var productInfoBgColor2  = "MediumPurple";
+
 
 function AddOneProductInfo(ulNode, productInfo)
 {
     // define the count of all products displayed
     var totalListNodesCount = ulNode.getElementsByTagName("li").length;
 
-    // Create a <li> element
-    var newLiElement = document.createElement("li");
-    // set background color
-    if (totalListNodesCount % 2)
-    {
-      newLiElement.style.backgroundColor = productInfoBgColor1;
-    }
-    else
-    {
-      newLiElement.style.backgroundColor = productInfoBgColor2;
-    }
+    // Create a <div> element
+    var newDivElement = document.createElement("div");
+    newDivElement.setAttribute("class","col-sm-4 col-lg-4 col-md-4")
+    var newThumbnail = document.createElement("div");
+    newThumbnail.className = "thumbnail";
+    newDivElement.appendChild(newThumbnail);
 
-    var newTableElement = document.createElement('table');
-    var newTableRow = document.createElement('tr');
 
-    var newTdImage = document.createElement('td');
     var newProductImage = document.createElement('img');
     newProductImage.src = "images/" + productInfo.id + ".jpg";
     newProductImage.className = "productImage";
-    newTdImage.appendChild(newProductImage);
+    newThumbnail.appendChild(newProductImage);
 
-    var newTdText = document.createElement('td');
-    newTdText.innerHTML = "Title:" + productInfo.title + "<br/><br/>Category:" + productInfo.category +
-                          "<br/><br/>Description:" + productInfo.description + "<br/><br/>On Sale:" + productInfo.onsale +
-                          "<br/><br/>Price:" + parseFloat(productInfo.price).toFixed(2);
 
-    var newTdAddCart = document.createElement('td');
-    var newAddCartImage = document.createElement('img');
-    newAddCartImage.src = "images/cart.png";
-    newAddCartImage.className = "cartImage";
-    newTdAddCart.innerHTML = "Add to cart";
+    var newText = document.createElement('div');
+    newText.className = "caption";
+    newText.innerHTML = "Title: " + productInfo.title + "<br/><br/>Category :" + productInfo.category +
+                        "<br/><br/>Description:" + productInfo.description +
+                          "<br/><br/>Price :" + parseFloat(productInfo.price).toFixed(2);
 
-    // set onclick event for the image
-    var methodAttr = document.createAttribute("onclick");  // Create a onclick event
-    methodAttr.value = "AddCart('"  + productInfo.id + "')";
-    newAddCartImage.setAttributeNode(methodAttr);
+    var newCart = document.createElement('div');
+    newCart.innerHTML = "<button type='button' class='btn btn-default btn-sm' onclick='AddCart(" + productInfo.id + ")''>" +
+          "<span class='glyphicon glyphicon-shopping-cart'></span> Add Cart</button>";
 
-    newTdAddCart.appendChild(newAddCartImage);
+    newThumbnail.appendChild(newText);
+    newThumbnail.appendChild(newCart);
+    ulNode.appendChild(newDivElement);                      // Append the <div> to category <ul> node
 
-    newTableRow.appendChild(newTdImage);
-    newTableRow.appendChild(newTdText);
-    newTableRow.appendChild(newTdAddCart);
 
-    newTableElement.appendChild(newTableRow);
-    newLiElement.appendChild(newTableElement);
-    ulNode.appendChild(newLiElement);                      // Append the <li> to category <ul> node
 }
 
 function CreatePageLinks(categoryType, allProducts)
@@ -482,7 +479,7 @@ function HighlightCurrentPageLink(currentPage)
     {
         if (totalListNodes[i].innerHTML == currentPage)
         {
-            totalListNodes[i].style.backgroundColor = "HotPink";
+            totalListNodes[i].style.backgroundColor = "rgb(221, 221, 221)";
             break;
         }
     }
@@ -601,11 +598,11 @@ function CreateNewCartRow(productInfo)
     // set background color
     if (cartTable.rows.length % 2)
     {
-      newTableRow.style.backgroundColor = cartBackgroundColor1;
+      newTableRow.style.backgroundColor = "rgb(221, 221, 221)";
     }
     else
     {
-      newTableRow.style.backgroundColor = cartBackgroundColor2;
+      newTableRow.style.backgroundColor = "rgb(221, 221, 221)";
     }
     var newTdName = document.createElement('td');
     newTdName.className = "bookName";

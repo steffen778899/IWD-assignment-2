@@ -1,51 +1,6 @@
 [
   {
              "id": 1,
-          "title": "Deep",
-       "category": "freediving",
-    "description": "Jules Verne's Twenty Thousand Leagues under the Sea meets Born to Run and the cutting edge of popular science",
-     "popularity": "high",
-         "onsale": "no",
-          "price": 16.60
-  },
-  {
-             "id": 2,
-          "title": "Underwater Foraging",
-       "category": "freediving",
-    "description": "DISCOVER LEARN UNDERSTAND UNCOVER RESPECT",
-     "popularity": "high",
-         "onsale": "no",
-          "price": 57.34
-  },
-  {
-             "id": 3,
-          "title": "One Breath",
-       "category": "freediving",
-    "description": "One Breath tells Nick Mevoli's unforgettable story, and of the sport which shaped and ultimately destroyed him",
-     "popularity": "high",
-         "onsale": "no",
-          "price": 15.63
-  },
-  {
-             "id": 4,
-          "title": "Glass and Water",
-       "category": "freediving",
-    "description": "Glass and Water is the first book on underwater photography for freedivers",
-     "popularity": "high",
-         "onsale": "no",
-          "price": 51.32
-  },
-  {
-             "id": 5,
-          "title": "Freediving for Beginners",
-       "category": "freediving",
-    "description": "Freediving for Beginners How to Master the Art of Freediving and Explore the Ocean on a Single Breath",
-     "popularity": "high",
-         "onsale": "no",
-          "price": 24.95
-  },
-  {
-             "id": 6,
           "title": "Harry potter",
        "category": "novel",
     "description": "story of wizard and his friends",
@@ -54,7 +9,7 @@
           "price": 50
   },
   {
-             "id": 7,
+             "id": 2,
           "title": "A Tale of Two Cities",
        "category": "fiction",
     "description": "story of the French Doctor Manette",
@@ -63,7 +18,7 @@
           "price": 40
   },
   {
-             "id": 8,
+             "id": 3,
           "title": "The Hobbit",
        "category": "fantasy",
     "description": "story of Bilbo's journey",
@@ -72,119 +27,12 @@
           "price": 30
   },
   {
-             "id": 9,
+             "id": 4,
           "title": "Alice in Wonderland",
        "category": "fantasy",
     "description": "story of Alice's journey in the fantasy world",
      "popularity": "normal",
          "onsale": "no",
           "price": 20
-  },
-  {
-             "id": 10,
-          "title": "The Lion, the Witch and the Wardrobe",
-       "category": "novel",
-    "description": "story of a land of talking animals and mythical creatures that one White Witch has ruled for 100 years of deep winter",
-     "popularity": "high",
-         "onsale": "no",
-          "price": 25
-  },
-
-  {
-             "id": 11,
-          "title": "The Catcher in the Rye",
-       "category": "novel",
-    "description": "story of Holden Caulfield, a teenager from New York City",
-     "popularity": "high",
-         "onsale": "yes",
-          "price": 28
-  },
-
-  {
-             "id": 12,
-          "title": "The Zookeeper's Wife",
-       "category": "history",
-    "description": "a remarkable true story of bravery and sanctuary during World War II - for fans of The Guernsey Literary and Potato Peel Pie Society and The Postmistress",
-     "popularity": "normal",
-         "onsale": "yes",
-          "price": 12.5
-  },
-
-  {
-             "id": 13,
-          "title": "The Wicked Wit of Queen Elizabeth II",
-       "category": "history",
-    "description": "revealing a side of the Queen's personality that the public rarely see",
-     "popularity": "normal",
-         "onsale": "no",
-          "price": 16.86
-  },
-
-  {
-             "id": 14,
-          "title": "The Rape of Nanking",
-       "category": "history",
-    "description": "the History and Legacy of the Notorious Massacre during the Second Sino-Japanese War chronicles one of the most infamous events of the 20th century",
-     "popularity": "high",
-         "onsale": "yes",
-          "price": 23.50
-  },
-
-  {
-             "id": 15,
-          "title": "The Strange Death of Europe",
-       "category": "cultural",
-    "description": "A controversial and devastatingly honest depiction of the demise of Europe",
-     "popularity": "high",
-         "onsale": "no",
-          "price": 30.49
-  },
-
-  {
-             "id": 16,
-          "title": "The Umbrian Thursday Night Supper Club",
-       "category": "travel",
-    "description": "The true story of the Umbrian Thursday night supper club - and the five extraordinary women who meet in the hills above Italy's Orvieto to cook, eat and tell the stories of their incredible lives",
-     "popularity": "normal",
-         "onsale": "yes",
-          "price": 15.46
-  },
-
-  {
-             "id": 17,
-          "title": "Lonely Planet Vanuatu & New Caledonia",
-       "category": "travel",
-    "description": "Get to the heart of Vanuatu and New Caledonia and begin your journey now",
-     "popularity": "high",
-         "onsale": "yes",
-          "price": 24.06
-  },
-
-  {
-             "id": 18,
-          "title": "Epic Bike Rides of the World",
-       "category": "sport",
-    "description": "Destinations range from France and Italy, for the world's great bike races, to the wilds of Mongolia and Patagonia",
-     "popularity": "normal",
-         "onsale": "yes",
-          "price": 41.42
-  },
-  {
-             "id": 19,
-          "title": "Bill Bryson's African Diary",
-       "category": "travel",
-    "description": "It provides plenty to worry a nervous traveller like Bill Bryson: hair-raising rides in light aircraft, tropical diseases, snakes, insects and large predators",
-     "popularity": "high",
-         "onsale": "yes",
-          "price": 18.29
-  },
-  {
-             "id": 20,
-          "title": "The Field Guide to the Birds of New Zealand",
-       "category": "travel",
-    "description": "The only field guide to New Zealand birds officially endorsed by the Ornithological Society of New Zealand",
-     "popularity": "high",
-         "onsale": "yes",
-          "price": 47.11
   }
 ]
