@@ -1,3 +1,6 @@
+/**
+ * check the validation of form
+ */
 function validateForm()
 {
   var isValid = true;
@@ -27,9 +30,12 @@ function validateForm()
   return isValid;
 }
 
+/**
+ * use google map API to show store position
+ */
 function ShowStorePosition()
 {
-  // set the store position in the map
+  // set the store position in the map (20 Mark RD, Mt Albert, Auckland)
   var myCenter = new google.maps.LatLng(-36.882723, 174.709197);
   var mapOptions = {
       center: myCenter,
@@ -48,8 +54,40 @@ function ShowStorePosition()
   });
 }
 
+// define the index of the slide
+var slideIndex = 0;
+/**
+ * slide show the image on the hoome page
+ */
+function ShowSlides()
+{
+    var i;
+    var slides = document.getElementsByClassName("Slides");
+    var dots = document.getElementsByClassName("dot");
+    for (i = 0; i < slides.length; i++)
+    {
+        slides[i].style.display = "none";
+    }
+    slideIndex++;
+    if (slideIndex> slides.length)
+    {
+        slideIndex = 1;
+    }
+    for (i = 0; i < dots.length; i++)
+    {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex-1].style.display = "block";
+    dots[slideIndex-1].className += " active";
+    setTimeout(ShowSlides, 3000); // Change image every 3 seconds
+}
+
+// define the address of Json file
 var addressOfJsonFile = 'https://raw.githubusercontent.com/steffen778899/IWD-assignment-2/master/json_items/items.json';
 
+/**
+ * initialialize home page items
+ */
 function InitializeHomePage()
 {
     // get all the div elements under featured items
@@ -80,7 +118,7 @@ function InitializeHomePage()
       for(var i = 0; i < allProducts.length; i++)
       {
         // display the popular items
-        if(allProducts[i].popularity == "high" && countOfFeaturedItem < 4)
+        if(allProducts[i].popularity == "high" && countOfFeaturedItem < 5)
         {
           // display the image
           featuredItemList[countOfFeaturedItem].getElementsByTagName("img")[0].src = "images/" + allProducts[i].id + ".jpg";
@@ -92,7 +130,7 @@ function InitializeHomePage()
         }
 
         // display the deal of the day
-        if(allProducts[i].onsale == "yes" && countOfDealOfDay < 4)
+        if(allProducts[i].onsale == "yes" && countOfDealOfDay < 5)
         {
           // display the image
           dealOfDayList[countOfDealOfDay].getElementsByTagName("img")[0].src = "images/" + allProducts[i].id + ".jpg";
@@ -107,6 +145,9 @@ function InitializeHomePage()
     httpRequest.send();
 }
 
+/**
+ * initialialize product page items
+ */
 function InitializeProductPage()
 {
     var httpRequest = new XMLHttpRequest();
@@ -127,6 +168,13 @@ function InitializeProductPage()
 
 }
 
+/**
+ * create categories for products and add mouse events to
+ * the created categories so that the related products are displayed
+ * when the category is clicked
+ * @param {array} allProducts an array of all products
+ * @return void
+ */
 function InitializeCategory(allProducts)
 {
     // define an array to store the category items
@@ -156,6 +204,7 @@ function InitializeCategory(allProducts)
           categoryCounts.push(1);
         }
     }
+    // get the ul node that holds all li elements(categories)
     var ulNode = document.getElementsByClassName("category")[0].getElementsByTagName("ul")[0];
     var newAllLiElement = document.createElement("li");       // Create a <li> element
     //add all category
@@ -164,7 +213,7 @@ function InitializeCategory(allProducts)
     newAllLiElement.setAttribute("class","list-group-item");
     var methodAllAttr = document.createAttribute("onclick");  // Create a onclick event
     methodAllAttr.value = "DisplaySelectedCategory('"  + 'all' + "')";
-    newAllLiElement.setAttributeNode(methodAllAttr);             // Append the attribute to the <li> element
+    newAllLiElement.setAttributeNode(methodAllAttr);          // Append the attribute to the <li> element
     ulNode.appendChild(newAllLiElement);                      // Append the <li> to category <ul> node
 
     for (var i = 0; i < categories.length; i++)
@@ -175,12 +224,6 @@ function InitializeCategory(allProducts)
         //li class="list-group-item"
         newLiElement.setAttribute("class","list-group-item");
 
-
-
-
-        //newLiElement.onclick = function (){
-        //    DisplaySelectedCategory(categories[i], allProducts)
-        //}
         var methodAttr = document.createAttribute("onclick");  // Create a onclick event
         methodAttr.value = "DisplaySelectedCategory('"  + categories[i] + "')";
         newLiElement.setAttributeNode(methodAttr);             // Append the attribute to the <li> element
@@ -188,6 +231,12 @@ function InitializeCategory(allProducts)
     }
 }
 
+/**
+ * display the selected type of category
+ * @param {string} categoryType the type of category
+ * @param {array} allProducts an array of all products
+ * @return void
+ */
 function DisplaySelectedCategory(categoryType, allProducts)
 {
     // save the category type
@@ -212,6 +261,11 @@ function DisplaySelectedCategory(categoryType, allProducts)
     }
 }
 
+/**
+ * display the selected type of category
+ * @param {string} categoryType the type of category
+ * @param {array} allProducts an array of all products
+ */
 function Display(categoryType, allProducts)
 {
     // clear page links
@@ -222,14 +276,20 @@ function Display(categoryType, allProducts)
     DisplayBooksOnPage(1, categoryType);
 }
 
+/**
+ * clear the products info on the page
+ */
 function ClearPruductsInfo()
 {
     var ulNode = document.getElementsByClassName("productsInfo")[0].getElementsByTagName("ul")[0];
     ulNode.innerHTML = "";
 }
 
-
-
+/**
+ * add one product to the list
+ * @param {node} ulNode ul node to hold all the products
+ * @param {productInfo} productInfo one product info
+ */
 function AddOneProductInfo(ulNode, productInfo)
 {
     // define the count of all products displayed
@@ -242,19 +302,19 @@ function AddOneProductInfo(ulNode, productInfo)
     newThumbnail.className = "thumbnail";
     newDivElement.appendChild(newThumbnail);
 
-
+    // image
     var newProductImage = document.createElement('img');
     newProductImage.src = "images/" + productInfo.id + ".jpg";
     newProductImage.className = "productImage";
     newThumbnail.appendChild(newProductImage);
 
-
+    // title, category, description, price
     var newText = document.createElement('div');
     newText.className = "caption";
     newText.innerHTML = "Title: " + productInfo.title + "<br/><br/>Category :" + productInfo.category +
                         "<br/><br/>Description:" + productInfo.description +
                           "<br/><br/>Price :" + parseFloat(productInfo.price).toFixed(2);
-
+    // add cart button
     var newCart = document.createElement('div');
     newCart.innerHTML = "<button type='button' class='btn btn-default btn-sm' onclick='AddCart(" + productInfo.id + ")''>" +
           "<span class='glyphicon glyphicon-shopping-cart'></span> Add Cart</button>";
@@ -262,12 +322,17 @@ function AddOneProductInfo(ulNode, productInfo)
     newThumbnail.appendChild(newText);
     newThumbnail.appendChild(newCart);
     ulNode.appendChild(newDivElement);                      // Append the <div> to category <ul> node
-
-
 }
 
+/**
+ * create page numbers and add click event to the numbers so
+ * that the related page will be displayed when clicked
+ * @param {string} categoryType the type of category
+ * @param {array} allProducts an array of all products
+ */
 function CreatePageLinks(categoryType, allProducts)
 {
+    // get the number of books displayed per page
     var booksPerPage = parseInt(document.getElementById("booksPerPageValue").value);
     var totalPages = 0;
 
@@ -306,10 +371,14 @@ function CreatePageLinks(categoryType, allProducts)
     }
 }
 
+/**
+ * clear all the page numbers(with their onclick events)
+ */
 function ClearPageLinks()
 {
     var totalPagesNodes = document.getElementsByClassName("totalPages")[0];
 
+    // save the previous and next buttons
     var btnPrevious = document.getElementById("previousButton");
     var btnNext = document.getElementById("nextButton");
 
@@ -317,9 +386,17 @@ function ClearPageLinks()
     {
         totalPagesNodes.removeChild(totalPagesNodes.firstChild);
     }
+    // restore the previous and next buttons
     totalPagesNodes.appendChild(btnPrevious);
     totalPagesNodes.appendChild(btnNext);
 }
+
+/**
+ * display books on the page according to the category type
+ * and current page
+ * @param {int} currentPage current page
+ * @param {string} categoryType the type of category
+ */
 function DisplayBooksOnPage(currentPage, categoryType)
 {
     // clear products info for redisplay
@@ -332,6 +409,7 @@ function DisplayBooksOnPage(currentPage, categoryType)
     // save the current page
     document.getElementById("currentPage").innerHTML = currentPage;
 
+    // get the number of books displayed per page
     var booksPerPage = parseInt(document.getElementById("booksPerPageValue").value);
 
     var httpRequest = new XMLHttpRequest();
@@ -394,6 +472,10 @@ function DisplayBooksOnPage(currentPage, categoryType)
     httpRequest.send();
 }
 
+/**
+ * set the previous and next buttons according to current page
+ * @param {int} currentPage current page
+ */
 function SetPreviousNextButton(currentPage)
 {
     var btnPrevious = document.getElementById("previousButton");
@@ -429,6 +511,9 @@ function SetPreviousNextButton(currentPage)
     }
 }
 
+/**
+ * show the books on the previous page
+ */
 function ShowPrevious()
 {
     var currentPage = parseInt(document.getElementById("currentPage").innerHTML);
@@ -439,6 +524,9 @@ function ShowPrevious()
     DisplayBooksOnPage(currentPage, categoryType);
 }
 
+/**
+ * show the books on the next page
+ */
 function ShowNext()
 {
     var currentPage = parseInt(document.getElementById("currentPage").innerHTML);
@@ -449,6 +537,9 @@ function ShowNext()
     DisplayBooksOnPage(currentPage, categoryType);
 }
 
+/**
+ * update the books displayed on the page if Json file has changed
+ */
 function UpdateBooksPerPage()
 {
     // get category type
@@ -465,6 +556,10 @@ function UpdateBooksPerPage()
     httpRequest.send();
 }
 
+/**
+ * change the background color of the current page
+ * @param {int} currentPage current page
+ */
 function HighlightCurrentPageLink(currentPage)
 {
     var totalListNodes = document.getElementsByClassName("totalPages")[0].getElementsByTagName("li");
@@ -485,8 +580,14 @@ function HighlightCurrentPageLink(currentPage)
     }
 }
 
-var cartBackgroundColor1 = "DarkSeaGreen";
-var cartBackgroundColor2 = "rgb(191, 64, 128)";
+// define the background color of cart
+var cartBackgroundColor1 = "rgb(221, 221, 221)";
+var cartBackgroundColor2 = "rgb(221, 221, 180)";
+
+/**
+ * add the selected product to cart
+ * @param {int} productId the id of the product
+ */
 function AddCart(productId)
 {
     // Todo check whether added
@@ -514,6 +615,11 @@ function AddCart(productId)
     httpRequest.send();
 }
 
+/**
+ * get the selected product info
+ * @param {int} productId the id of the product
+ * @param {array} allProducts all products
+ */
 function GetProductInfo(productId, allProducts)
 {
     for (var i = 0; i < allProducts.length; i++)
@@ -525,6 +631,11 @@ function GetProductInfo(productId, allProducts)
     }
 }
 
+/**
+ * check whether the product has already been added to cart
+ * @param {productInfo} productInfo
+ * @return true--already added; false--not added
+ */
 function IsAlreadyAddedToCart(productInfo)
 {
     var isAlreadyAddedToCart = false;
@@ -541,6 +652,11 @@ function IsAlreadyAddedToCart(productInfo)
     return isAlreadyAddedToCart;
 }
 
+/**
+ * update cart
+ * @param {string} productName name of product
+ * @param {int} counts the count to changed
+ */
 function UpdateCartRow(productName, counts)
 {
     var totalPrice = document.getElementById("totalPrice");
@@ -585,6 +701,10 @@ function UpdateCartRow(productName, counts)
     totalPrice.innerHTML = parseFloat(parseFloat(totalPrice.innerHTML) + (counts * singlePrice)).toFixed(2);
 }
 
+/**
+ * create a new cart row
+ * @param {productInfo} productInfo the product info
+ */
 function CreateNewCartRow(productInfo)
 {
     // cart table
@@ -598,11 +718,11 @@ function CreateNewCartRow(productInfo)
     // set background color
     if (cartTable.rows.length % 2)
     {
-      newTableRow.style.backgroundColor = "rgb(221, 221, 221)";
+      newTableRow.style.backgroundColor = cartBackgroundColor1;
     }
     else
     {
-      newTableRow.style.backgroundColor = "rgb(221, 221, 221)";
+      newTableRow.style.backgroundColor = cartBackgroundColor2;
     }
     var newTdName = document.createElement('td');
     newTdName.className = "bookName";
@@ -639,6 +759,9 @@ function CreateNewCartRow(productInfo)
     totalPrice.innerHTML = parseFloat(parseFloat(totalPrice.innerHTML) + productInfo.price).toFixed(2);
 }
 
+/**
+ * show check out info
+ */
 function CheckOut()
 {
     var totalPrice = document.getElementById("totalPrice");
