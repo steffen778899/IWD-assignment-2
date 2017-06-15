@@ -107,24 +107,6 @@ function InitializeHomePage()
     httpRequest.send();
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 function InitializeProductPage()
 {
     var httpRequest = new XMLHttpRequest();
